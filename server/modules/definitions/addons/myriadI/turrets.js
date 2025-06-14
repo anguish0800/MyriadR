@@ -1,4 +1,4 @@
-const { combineStats, weaponArray, makeDeco } = require('../../facilitators.js')
+const { combineStats, weaponArray, makeDeco, makeTurret } = require('../../facilitators.js')
 const { base, statnames } = require('../../constants.js')
 const g = require('../../gunvals.js')
 //wave 2
@@ -49,3 +49,24 @@ Class.myriad_shield = {
         }
     ]
 }
+
+// wave 5
+
+Class.myriad_cannonLeg = {
+	SHAPE: "M -0.7 0.2 C -1 0.2 -1 -0.2 -0.7 -0.2 L 0.7 -0.2 C 1 -0.2 1 0.2 0.7 0.2 L -0.7 0.2",
+	COLOR: "darkGray"
+}
+
+// wave 8
+
+Class.myriad_mechGun = makeTurret({
+    GUNS: [
+        {
+            POSITION: [20, 10, 1, 0, 0, 0, 0],
+            PROPERTIES: {
+		    SHOOT_SETTINGS: combineStats([g.basic, g.pelleter, g.twin, g.power, { speed: 0.7, maxSpeed: 0.7, spray: 0, shudder: 0}]),
+                TYPE: "bullet",
+            },
+        }
+    ],
+}, {canRepel: true, limitFov: true})

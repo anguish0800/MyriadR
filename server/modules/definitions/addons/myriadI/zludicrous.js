@@ -9,7 +9,7 @@ require("./projectiles.js")
 require("../../../../config.js")
 
 let enableNoRemorse = true //Math.random() < 0.1 ? false : true
-
+return
 // multi funcs
 function makeMultiBullet(splitAmount, bulltype, size) {
   	/*
@@ -364,6 +364,7 @@ Class.myriad_L_hexation = {
 Class.myriad_L_hexation.GUNS.push(
 		...makeMultiDeco({ tier: 5, width: 4 })
 )
+Class.myriad_L_hyperOperaBullet = makeMultiBullet(3, "myriad_tetraBullet", 10)
 if (enableNoRemorse) {
   	Class.myriad_pentation.UPGRADES_TIER_4 = ["myriad_L_hexation"]
   	Config.LEVEL_CHEAT_CAP = 60

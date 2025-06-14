@@ -1,25 +1,28 @@
 const { combineStats, weaponArray, makeDeco, makeTurret } = require('../../facilitators.js')
 const { base, statnames } = require('../../constants.js')
 const g = require('../../gunvals.js')
+
 // wave 1
 Class.myriad_multiBullet = {
   	PARENT: "bullet",
   	INDEPENDENT: true,
   	GUNS: [
       	{
-        		POSITION: { LENGTH: 7, ANGLE: 22.5 },
+            POSITION: { LENGTH: 1, WIDTH: 20, ANGLE: 20 },
           	PROPERTIES: {
-              	SHOOT_SETTINGS: combineStats([g.basic, {damage: 0.3}]),
+                SHOOT_SETTINGS: combineStats([g.basic, {damage: 0.3, range: 0.1}]),
               	TYPE: ["bullet", { PERSISTS_AFTER_DEATH: true }],
-              	SHOOT_ON_DEATH: true
+                SHOOT_ON_DEATH: true,
+                ALPHA: 0
             }
       	},
       	{
-          	POSITION: { LENGTH: 7, ANGLE: -22.5 },
+            POSITION: { LENGTH: 1, WIDTH: 20, ANGLE: -20 },
           	PROPERTIES: {
-              	SHOOT_SETTINGS: combineStats([g.basic, {damage: 0.3}]),
+                SHOOT_SETTINGS: combineStats([g.basic, {damage: 0.3, range: 0.1}]),
               	TYPE: ["bullet", { PERSISTS_AFTER_DEATH: true }],
-              	SHOOT_ON_DEATH: true
+                SHOOT_ON_DEATH: true,
+                ALPHA: 0
             }
         }
     ],
@@ -28,26 +31,28 @@ Class.myriad_multiBullet = {
           	POSITION: [5, 0, 0, 0, 1],
           	TYPE: ["genericEntity", {COLOR: 12}]
         }
-    ]
+    ],
 }
 Class.myriad_tetraBullet = {
   	PARENT: "bullet",
   	INDEPENDENT: true,
   	GUNS: [
       	{
-          	POSITION: { LENGTH: 7, ANGLE: 22.5 },
+            POSITION: { LENGTH: 1, WIDTH: 20, ANGLE: 20  },
           	PROPERTIES: {
-              	SHOOT_SETTINGS: combineStats([g.basic, {damage: 0.5}]),
+                SHOOT_SETTINGS: combineStats([g.basic, {damage: 0.5, range: 0.1}]),
               	TYPE: ["myriad_multiBullet", {PERSISTS_AFTER_DEATH: true}],
-              	SHOOT_ON_DEATH: true
+                SHOOT_ON_DEATH: true,
+                ALPHA: 0
             }
         },
       	{
-          	POSITION: { LENGTH: 7, ANGLE: -22.5 },
+            POSITION: { LENGTH: 1, WIDTH: 20, ANGLE: -20 },
           	PROPERTIES: {
-              	SHOOT_SETTINGS: combineStats([g.basic, {damage: 0.5}]),
+                SHOOT_SETTINGS: combineStats([g.basic, {damage: 0.5, range: 0.1}]),
               	TYPE: ["myriad_multiBullet", {PERSISTS_AFTER_DEATH: true}],
-              	SHOOT_ON_DEATH: true
+                SHOOT_ON_DEATH: true,
+                ALPHA: 0
             }
         }
     ],
@@ -56,26 +61,28 @@ Class.myriad_tetraBullet = {
           	POSITION: [7.5, 0, 0, 0, 1],
           	TYPE: ["genericEntity", {COLOR: 12}]
         }
-    ]
+    ],
 }
 Class.myriad_pentaBullet = {
   	PARENT: "bullet",
   	INDEPENDENT: true,
   	GUNS: [
       	{
-          	POSITION: { LENGTH: 7, ANGLE: 22.5 },
+          	POSITION: { LENGTH: 1, WIDTH: 20, ANGLE: 20  },
           	PROPERTIES: {
-              	SHOOT_SETTINGS: combineStats([g.basic, {damage: 0.45}]),
+                SHOOT_SETTINGS: combineStats([g.basic, {damage: 0.45, range: 0.1}]),
               	TYPE: ["myriad_tetraBullet", {PERSISTS_AFTER_DEATH: true}],
-              	SHOOT_ON_DEATH: true
+              	SHOOT_ON_DEATH: true,
+                ALPHA: 0
             }
         },
       	{
-          	POSITION: { LENGTH: 7, ANGLE: -22.5 },
+          	POSITION: { LENGTH: 1, WIDTH: 20, ANGLE: -20 },
           	PROPERTIES: {
-              	SHOOT_SETTINGS: combineStats([g.basic, {damage: 0.45}]),
+                SHOOT_SETTINGS: combineStats([g.basic, {damage: 0.45, range: 0.1}]),
               	TYPE: ["myriad_tetraBullet", {PERSISTS_AFTER_DEATH: true}],
-              	SHOOT_ON_DEATH: true
+              	SHOOT_ON_DEATH: true,
+                ALPHA: 0
             }
         }
     ],
@@ -91,28 +98,31 @@ Class.myriad_splitterBullet = {
   	INDEPENDENT: true,
   	GUNS: [
       	{
-          	POSITION: { LENGTH: 7 },
+          	POSITION: { LENGTH: 1, WIDTH: 20 },
           	PROPERTIES: {
-              	SHOOT_SETTINGS: combineStats([g.basic, {damage: 0.4}]),
+                SHOOT_SETTINGS: combineStats([g.basic, {damage: 0.4, range: 0.1}]),
               	TYPE: ["bullet", {PERSISTS_AFTER_DEATH: true}],
-              	SHOOT_ON_DEATH: true
+              	SHOOT_ON_DEATH: true,
+                ALPHA: 0
             }
         },
       	{
-          	POSITION: { LENGTH: 7, ANGLE: 22.5 },
+          	POSITION: { LENGTH: 1, WIDTH: 20, ANGLE: 20 },
           	PROPERTIES: {
-              	SHOOT_SETTINGS: combineStats([g.basic, {damage: 0.4}]),
+                SHOOT_SETTINGS: combineStats([g.basic, {damage: 0.4, range: 0.1}]),
               	TYPE: ["bullet", {PERSISTS_AFTER_DEATH: true}],
-              	SHOOT_ON_DEATH: true
+              	SHOOT_ON_DEATH: true,
+                ALPHA: 0
             }
         },
       	{
-          	POSITION: { LENGTH: 7, ANGLE: -22.5 },
+          	POSITION: { LENGTH: 1, WIDTH: 20, ANGLE: -20 },
           	PROPERTIES: {
-              	SHOOT_SETTINGS: combineStats([g.basic, {damage: 0.4}]),
+                SHOOT_SETTINGS: combineStats([g.basic, {damage: 0.4, range: 0.1}]),
               	TYPE: ["bullet", {PERSISTS_AFTER_DEATH: true}],
-              	SHOOT_ON_DEATH: true
-            }
+              	SHOOT_ON_DEATH: true,
+                ALPHA: 0
+            } 
         }
     ],
   	TURRETS: weaponArray(
@@ -127,27 +137,30 @@ Class.myriad_decapitatorBullet = {
   	INDEPENDENT: true,
   	GUNS: [
       	{
-          	POSITION: { LENGTH: 7 },
+          	POSITION: { LENGTH: 1, WIDTH: 20 },
           	PROPERTIES: {
-              	SHOOT_SETTINGS: combineStats([g.basic, {damage: 0.3}]),
+                SHOOT_SETTINGS: combineStats([g.basic, {damage: 0.3, range: 0.1}]),
               	TYPE: ["myriad_splitterBullet", {PERSISTS_AFTER_DEATH: true}],
-              	SHOOT_ON_DEATH: true
+              	SHOOT_ON_DEATH: true,
+                ALPHA: 0
             }
         },
       	{
-          	POSITION: { LENGTH: 7, ANGLE: 22.5 },
+          	POSITION: { LENGTH: 1, WIDTH: 20, ANGLE: 20 },
           	PROPERTIES: {
-              	SHOOT_SETTINGS: combineStats([g.basic, {damage: 0.3}]),
+                SHOOT_SETTINGS: combineStats([g.basic, {damage: 0.3, range: 0.1}]),
               	TYPE: ["myriad_splitterBullet", {PERSISTS_AFTER_DEATH: true}],
-              	SHOOT_ON_DEATH: true
+              	SHOOT_ON_DEATH: true,
+                ALPHA: 0
             }
         },
       	{
-          	POSITION: { LENGTH: 7, ANGLE: -22.5 },
+          	POSITION: { LENGTH: 1, WIDTH: 20, ANGLE: -20 },
           	PROPERTIES: {
-              	SHOOT_SETTINGS: combineStats([g.basic, {damage: 0.7}]),
+                SHOOT_SETTINGS: combineStats([g.basic, {damage: 0.7, range: 0.1}]),
               	TYPE: ["myriad_splitterBullet", {PERSISTS_AFTER_DEATH: true}],
-              	SHOOT_ON_DEATH: true
+              	SHOOT_ON_DEATH: true,
+                ALPHA: 0
             }
         }
     ],
@@ -161,35 +174,39 @@ Class.myriad_tearerBullet = {
   	INDEPENDENT: true,
   	GUNS: [
       	{
-          	POSITION: { LENGTH: 7, ANGLE: 11.25 },
+          	POSITION: { LENGTH: 1, WIDTH: 20, ANGLE: 10 },
           	PROPERTIES: {
-              	SHOOT_SETTINGS: combineStats([g.basic, {damage: 0.7}]),
+                SHOOT_SETTINGS: combineStats([g.basic, {damage: 0.7, range: 0.1}]),
               	TYPE: ["bullet", {PERSISTS_AFTER_DEATH: true}],
-              	SHOOT_ON_DEATH: true
+              	SHOOT_ON_DEATH: true,
+                ALPHA: 0
             }
         },
       	{
-          	POSITION: { LENGTH: 7, ANGLE: -11.25 },
+          	POSITION: { LENGTH: 1, WIDTH: 20, ANGLE: -10 },
           	PROPERTIES: {
-              	SHOOT_SETTINGS: combineStats([g.basic, {damage: 0.7}]),
+                SHOOT_SETTINGS: combineStats([g.basic, {damage: 0.7, range: 0.1}]),
               	TYPE: ["bullet", {PERSISTS_AFTER_DEATH: true}],
-              	SHOOT_ON_DEATH: true
+              	SHOOT_ON_DEATH: true,
+                ALPHA: 0
             }
         },
       	{
-          	POSITION: { LENGTH: 7, ANGLE: 22.5 },
+          	POSITION: { LENGTH: 1, WIDTH: 20, ANGLE: 20 },
           	PROPERTIES: {
-              	SHOOT_SETTINGS: combineStats([g.basic, {damage: 0.7}]),
+                SHOOT_SETTINGS: combineStats([g.basic, {damage: 0.7, range: 0.1}]),
               	TYPE: ["bullet", {PERSISTS_AFTER_DEATH: true}],
-              	SHOOT_ON_DEATH: true
+              	SHOOT_ON_DEATH: true,
+                ALPHA: 0
             }
         },
       	{
-          	POSITION: { LENGTH: 7, ANGLE: -22.5 },
+          	POSITION: { LENGTH: 1, WIDTH: 20, ANGLE: -20 },
           	PROPERTIES: {
-              	SHOOT_SETTINGS: combineStats([g.basic, {damage: 0.7}]),
+                SHOOT_SETTINGS: combineStats([g.basic, {damage: 0.7, range: 0.1}]),
               	TYPE: ["bullet", {PERSISTS_AFTER_DEATH: true}],
-              	SHOOT_ON_DEATH: true
+              	SHOOT_ON_DEATH: true,
+                ALPHA: 0
             }
         }
     ],
@@ -207,7 +224,7 @@ Class.myriad_hiveBullet = {
           	LENGTH: 7
         },
       	PROPERTIES: {
-          	SHOOT_SETTINGS: combineStats([g.swarm, g.bee, {damage: 0.7}]),
+            SHOOT_SETTINGS: combineStats([g.swarm, g.bee, {damage: 0.7, size: 1.3}]),
           	TYPE: ["bee", {INDEPENDENT: true, PERSISTS_AFTER_DEATH: true}],
           	STAT_CALCULATOR: "drone",
           	SYNCS_SKILLS: true,
@@ -410,6 +427,38 @@ Class.myriad_missileW = {
     ]
 }
 
+// wavr 5
+
+Class.myriad_genericCannonTarget = {
+	PARENT: "bullet",
+	CONTROLLERS: ['portal2', 'targetSelf'],
+	SHAPE: 'M -0.15 -1.5 L 0.15 -1.5 L 0.2 -0.6 L -0.2 -0.6 L -0.15 -1.5 M -0.2 0.6 L 0.2 0.6 L 0.15 1.5 L -0.15 1.5 L -0.2 0.6 M -1.5 0.15 L -1.5 -0.15 L -0.6 -0.2 L -0.6 0.2 L -1.5 0.15 M 0.6 0.2 L 0.6 -0.2 L 1.5 -0.15 L 1.5 0.15 L 0.6 0.2 M -1.2 0 A 1 1 0 0 1 1.2 0 A 1 1 0 0 1 -1.2 0 M -1 0 A 1 1 0 0 0 1 0 A 1 1 0 0 0 -1 0',
+	INDEPENDENT: true,
+	COLOR: "red",
+	BORDERLESS: true,
+	ALPHA: 0.75,
+	ARENA_CLOSER: true,
+	FACING_TYPE: "spin"
+}
+Class.myriad_cannonTarget = {
+	PARENT: "myriad_genericCannonTarget",
+	GUNS: [
+		{
+                        POSITION: {
+                                LENGTH: 0
+                        },
+                        PROPERTIES: {
+                                SHOOT_SETTINGS: combineStats([g.basic, g.pounder, g.destroyer, g.annihilator, {speed: 0, maxSpeed: 0}]),
+                                TYPE: ["bullet", {MOTION_TYPE: "grow", PERSISTS_AFTER_DEATH: true}],
+                                SHOOT_ON_DEATH: true,
+                                ALPHA: 0
+                        }
+                }
+        ]
+}
+
+// wave 6
+
 const timer = (run, duration) => {
     let timer = setInterval(() => run(), 31.25);
     setTimeout(() => {
@@ -433,10 +482,16 @@ const timer = (run, duration) => {
 const iceOnTick = (body, instance, multiplier, duration, hitsOwnTeam) => {
     if (!instance) return
     if (!instance.invuln && !instance.godmode && (instance.type == "tank" || instance.type == "food" || instance.type == "miniboss" || instance.type == "crasher") && instance.team != body.team) timer(() => {
-        instance.velocity.x /= 1.05 * multiplier;
-        instance.velocity.y /= 1.05 * multiplier;
+        instance.velocity.x = 0.25 * multiplier;
+        instance.velocity.y = 0.25 * multiplier;
     }, 1.5 * duration);
 };
+const dandelionEffect = (body, instance, multiplier, duration, hitsOwnTeam) => {
+    if (!instance) return
+    if (!instance.invuln && !instance.godmode && (instance.type == "tank" || instance.type == "food" || instance.type == "miniboss" || instance.type == "crasher") && instance.team != body.team) timer(() => {
+        instance.regen /= 1.05 * multiplier;
+    }, 1.5 * duration);
+}
 Class.poisonbullet = {
     PARENT: "bullet",
       TURRETS: [{
@@ -450,13 +505,53 @@ Class.poisonbullet = {
          }
     }]
 }
-Class.icebullet = {
-    PARENT: "bullet",
-  	SHAPE: "M -0.6 -1 L 0.3 -0.8 L 0 -0.6 L 1.1 -0.4 L 0.6 0 L 1.6 0.2 L 0.2 0.5 L 0.8 0.8 L -0.6 1 L -0.6 -1",
-    ON: [{
+const makeIceBullet = (duration, multiplier, icicle = true, hitsTeam = false) => {
+	return {
+    		PARENT: "bullet",
+    		SHAPE: icicle ? "M -0.2 -0.9 L 1 0 L -0.2 0.9 L -0.7 0.7 L -0.6 0.4 L -1 0 L -0.6 -0.4 L -0.7 -0.7 Z" : 0,
+    		ON: [{
+        		event: "damage",
+        		handler: ({ body, damageTool }) => {
+            			iceOnTick(body, damageTool[0], multiplier, duration, hitsTeam);
+        		}
+    		}]
+	}
+}
+const makePoiBullet = (duration, multiplier, stopAtSetHealth, hitsTeam = false) => {
+        return {
+                PARENT: "bullet",
+                ON: [{
+                        event: "damage",
+                        handler: ({ body, damageTool }) => {
+                                damageOnTick(body, damageTool[0], multiplier, duration, stopAtSetHealth, hitsTeam);
+                        }
+                }]
+        }
+}
+Class.myriad_iceBullet = makeIceBullet(1, 1)
+Class.myriad_longerIceBullet = makeIceBullet(1.75, 0.95)
+Class.myriad_longestIceBullet = makeIceBullet(2, 0.9)
+Class.myriad_icierBullet = makeIceBullet(0.9, 1.1)
+Class.myriad_iciestBullet = makeIceBullet(0.8, 1.2)
+Class.myriad_mixedIceBullet = makeIceBullet(1.5, 1.2)
+Class.myriad_everestIcicleBullet = makeIceBullet(1.1, 1.05)
+Class.myriad_everestIcicleBullet.SHAPE = "M -0.1 0.45 L 0.5 0 L -0.1 -0.45 L -0.35 -0.35 L -0.3 -0.2 L -0.5 0 L -0.3 0.2 L -0.35 0.35 Z M -0.2 -0.9 L 1 0 L -0.2 0.9 L -0.7 0.7 L -0.6 0.4 L -1 0 L -0.6 -0.4 L -0.7 -0.7 Z"
+Class.myriad_chioneIcicleBullet = makeIceBullet(1.1, 1.05)
+Class.myriad_chioneIcicleBullet.SHAPE = "M -0.1 0.45 L 0.5 0 L -0.1 -0.45 L -0.35 -0.35 L -0.3 -0.2 L -0.5 0 L -0.3 0.2 L -0.35 0.35 Z M -0.2 -0.9 L 1 0 L -0.2 0.9 L -0.7 0.7 L -0.6 0.4 L -1 0 L -0.6 -0.4 L -0.7 -0.7 Z"
+Class.myriad_chioneIcicleBullet.MOTION_TYPE = "slowgrow"
+Class.myriad_dandelionBullet = {
+   PARENT: "bullet",
+   ON: [{
         event: "damage",
         handler: ({ body, damageTool }) => {
-            iceOnTick(body, damageTool[0], 1, 1, true);
+            dandelionEffect(body, damageTool[0],10, 20000, true);
         }
     }]
+}
+
+Class.myriad_pistonBullet = {
+	PARENT: "bullet",
+	BODY: {
+		PUSHABILITY: 0.001
+	}
 }

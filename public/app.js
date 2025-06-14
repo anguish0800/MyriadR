@@ -1164,7 +1164,7 @@ function drawHealth(x, y, instance, ratio, alpha) {
     }
 }
 
-const iconColorOrder = [10, 11, 12, 15, 13, 2, 14, 4, 5, 1, 0, 3];
+const iconColorOrder = [0,1,2,3,4,5,6,7.8,9,10,11,12,13,14,15];
 function getIconColor(colorIndex) {
     return iconColorOrder[colorIndex % 12].toString();
 }
@@ -1616,7 +1616,7 @@ function drawUpgradeTree(spacing, alcoveSize) {
         let ax = (x - global.scrollX) * (tileSize + spaceBetween) * global.treeScale + global.screenWidth / 2,
             ay = (y - global.scrollY) * (tileSize + spaceBetween) * global.treeScale + global.screenHeight / 2;
         if (ax < -tileSize || ax > global.screenWidth + tileSize || ay < -tileSize || ay > global.screenHeight + tileSize) continue;
-        drawEntityIcon(index.toString(), ax, ay, tileSize * global.treeScale, tileSize * global.treeScale, global.treeScale, angle, 1, colorIndex);
+        drawEntityIcon(index.toString(), ax, ay, tileSize * global.treeScale, tileSize * global.treeScale, global.treeScale, 0, 1, colorIndex);
     }
 
     let text = "Arrow keys to navigate the class tree. Shift to navigate faster. Scroll wheel (or +/- keys) to zoom in/out.";
@@ -2042,7 +2042,7 @@ function drawAvailableUpgrades(spacing, alcoveSize) {
         let clickableRatio = global.canvas.height / global.screenHeight / global.ratio;
         let lastBranch = -1;
         let upgradeHoverIndex = global.clickables.upgrade.check({ x: global.mouse.x, y: global.mouse.y });
-        upgradeSpin += 0.01;
+        upgradeSpin += 0;
 
         for (let i = 0; i < gui.upgrades.length; i++) {
             let upgrade = gui.upgrades[i];

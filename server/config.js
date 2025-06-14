@@ -11,7 +11,7 @@ module.exports = {
 
     // Game server domain.
     // If the host is 'localhost:NUMBER', the NUMBER must be the port setting.
-    host: "myriad-resurgence.glitch.me",
+    host: "localhost:3000",
 
     // Which port to run the web server on.
     port: 3000,
@@ -31,7 +31,7 @@ module.exports = {
 
     // The \modules\setup\gamemodeconfigs\ files to load.
     // To change specific things about specific gamemodes (such as team count for tdm), edit their config file in \modules\setup\gamemodeconfigs\.
-    GAME_MODES: [gamemodes[rand]],
+    GAME_MODES: ["trainwars"],
 
     // The room files to load in the setup/rooms folder.
     // NOTE: If a /gamemodeconfig/ file "replaces" the value of ROOM_SETUP, it just adds its own ROOM_SETUP's content to this array.
@@ -128,7 +128,7 @@ module.exports = {
     LEVEL_CHEAT_CAP: 45,
 
     // Amount of player-bots to spawn.
-    BOTS: Math.floor(Math.random() * 4),
+    BOTS: 0, // Math.floor(Math.random() * 4),
 
     // How much XP player-bots get per second until they reach LEVEL_CAP.
     BOT_XP: 5,
@@ -161,7 +161,7 @@ module.exports = {
 
     // Allow foods to be spawned or not.
     // NOTE: Disabling it decreases lagness, also very useful if you don't need foods to be spawned.
-    ENABLE_FOOD: false,
+    ENABLE_FOOD: true,
 
     FOOD_CAP: 0.1, // Max normal food per normal tile.
     FOOD_SPAWN_CHANCE: 0.875, // Likeliness of normal food spawn attempts succeeding.

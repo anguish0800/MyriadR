@@ -5,13 +5,13 @@
   "scripts": {
     "startOptimized": "node --optimize-for-size --no-lazy --gc_interval=120 server/index",
     "restartOnSaveOptimized": "node --optimize-for-size --no-lazy --gc_interval=120 --watch server/index",
-    "start": "node server/index",
+    "start": "node server/index && clear",
     "restartOnSave": "node --watch server/index",
     "host": "node standaloneClient/index",
     "build": "node standaloneClient/build minify"
   },
   "dependencies": {
-    "ws": "^8.13.0"
+    "ws": "^8.18.0"
   },
   "engines": {
     "node": "16.x"

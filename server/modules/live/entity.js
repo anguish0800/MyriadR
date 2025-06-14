@@ -76,7 +76,7 @@ class Gun extends EventEmitter {
                 ANGLE: position[5],
                 DELAY: position[6],
                 DRAW_ABOVE: position[7],
-              	LAYER: position[8]
+              	//LAYER: position[8]
             }
         }
         position = {
@@ -88,7 +88,7 @@ class Gun extends EventEmitter {
             ANGLE: position.ANGLE ?? 0,
             DELAY: position.DELAY ?? 0,
             DRAW_ABOVE: position.DRAW_ABOVE ?? this.drawAbove,
-          	LAYER: position.LAYER ?? 0
+            //LAYER: position.LAYER ?? 0
         };
         this.length = position.LENGTH / 10;
         this.width = position.WIDTH / 10;
@@ -99,7 +99,7 @@ class Gun extends EventEmitter {
         this.offset = _off.length / 10;
         this.maxCycleTimer = !this.delaySpawn - position.DELAY;
         this.drawAbove = position.DRAW_ABOVE;
-      	this.layer = position.LAYER
+      	//this.layer = position.LAYER
         this.recoilPosition = 0;
         this.recoilVelocity = 0;
         if (this.canShoot) {
@@ -111,7 +111,7 @@ class Gun extends EventEmitter {
     }
     live() {
         if (!this.canShoot || this.body.master.invuln) return;
-        
+
         // Iterate recoil
         this.recoil();
 
@@ -483,6 +483,7 @@ class Gun extends EventEmitter {
             angle: this.angle,
             offsetDirection: this.offsetDirection,
             offset: this.offset,
+	    // layer: this.bound.layer,
         };
     }
 }
@@ -906,12 +907,15 @@ class Entity extends EventEmitter {
                 if (a.power != null && (b.power == null || AI.acceptsFromTop)) b.power = a.power;
             }
         }
-        this.control.target = b.target == null ? this.control.target : b.target;
+        this.control.target = b.target == null ? this.control.target : b.target
         this.control.goal = b.goal ? b.goal : { x: this.x, y: this.y };
         this.control.fire = b.fire ?? false;
         this.control.main = b.main ?? false;
         this.control.alt = b.alt ?? false;
         this.control.power = b.power == null ? 1 : b.power;
+	if (this.control.alt && this.onAlt) {
+            this.onAlt(this, entities);
+        }
 
         if (this.invuln && (this.control.goal.x !== this.x || this.control.goal.y !== this.y)) {
             this.invuln = false;
@@ -1051,6 +1055,7 @@ class Entity extends EventEmitter {
         if (set.DAMAGE_EFFECTS != null) this.settings.damageEffects = set.DAMAGE_EFFECTS;
         if (set.RATIO_EFFECTS != null) this.settings.ratioEffects = set.RATIO_EFFECTS;
         if (set.MOTION_EFFECTS != null) this.settings.motionEffects = set.MOTION_EFFECTS;
+	if (set.ON_ALT != null) this.onAlt = set.ON_ALT || null;
         if (set.ACCEPTS_SCORE != null) this.settings.acceptsScore = set.ACCEPTS_SCORE;
         if (set.GIVE_KILL_MESSAGE != null) this.settings.givesKillMessage = set.GIVE_KILL_MESSAGE;
         if (set.CAN_GO_OUTSIDE_ROOM != null) this.settings.canGoOutsideRoom = set.CAN_GO_OUTSIDE_ROOM;
