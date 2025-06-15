@@ -1,0 +1,7 @@
+steps:
+  - name: Initialize Directories
+    command: mkdir -p app/standaloneClient
+  - name: Change Directory
+    command: cd app/standaloneClient
+  - name: Initialize Project
+    command: npm init -y
