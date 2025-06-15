@@ -5,10 +5,17 @@
   "scripts": {
     "startOptimized": "node --optimize-for-size --no-lazy --gc_interval=120 server/index",
     "restartOnSaveOptimized": "node --optimize-for-size --no-lazy --gc_interval=120 --watch server/index",
+<<<<<<< HEAD
     "start": "node server/index.js",
     "restartOnSave": "node --watch server/index",
     "host": "node standaloneClient/index",
     "build": "webpack --mode production"
+=======
+    "start": "serve -s build",
+    "restartOnSave": "node --watch server/index",
+    "host": "node standaloneClient/index",
+    "build": "react-scripts build"
+>>>>>>> 5a845d461b90e687f8b1e92e48696c196e73628c
   },
   "dependencies": {
     "ws": "^8.18.0"

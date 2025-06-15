@@ -1,0 +1,18 @@
+steps:
+  - name: Initialize Directories
+    command: mkdir -p app/standaloneClient
+  - name: Change Directory
+    command: cd app/standaloneClient
+  - name: Initialize Project
+    command: npm init -y
+
+services:
+  client:
+    build:
+      dockerfile: Dockerfile
+      context: app/standaloneClient
+    environment:
+      - RAILWAY_BUILD_COMMAND=cd app/standaloneClient && npm install && npm run build
+      - RAILWAY_START_COMMAND=npm run start
+    commands:
+      start: npm run start
